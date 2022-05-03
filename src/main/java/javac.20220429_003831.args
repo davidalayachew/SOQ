@@ -1,0 +1,14 @@
+-d
+..\\..\\..\\target\\classes
+-encoding
+UTF-8
+-g
+--module-path
+"C:\\Program Files\\Java\\javafx\\javafx-sdk-18\\lib"
+--add-modules=javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.swing,javafx.web
+-Xdiags:verbose
+-Xlint:all
+--enable-preview
+-source
+17
+SOQ_20220429.java
