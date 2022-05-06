@@ -10,11 +10,12 @@ public interface Round1
       
       final UserPrompt prompt = new UserPrompt();
       
-      first.input(prompt);
-      first.compareRecipe();
-      first.WantToCook();
-        
-      first.Selection(prompt);
+      final Driver driver = new Driver(first);
+      driver.input(prompt);
+      first.compareRecipe(prompt);
+      driver.WantToCook(prompt);
+   
+      driver.selection(prompt);
         
    }
       
@@ -40,6 +41,173 @@ public interface Round1
       
       }
    
+   }
+   
+   public class Driver
+   {
+   
+      ShowRecipes sr;
+      
+      public Driver(ShowRecipes parameter)
+      {
+      
+         sr = parameter;
+      
+      }
+   
+      public void selection(UserPrompt prompt){ //Can access every method in class except CookAgain
+        
+        //1. Cook something -- WantToCook()
+        //2. See ingredient list -- IngredientCount()
+        //3. See available recipes -- compareRecipe()
+        //4. Modify total ingredient amounts -- input()
+        //maybe  put this in ShowRecipes, create object for each to put in own classes
+        
+         int userChoice = 
+            prompt.askForNumber(
+               "What would you like to do now? Enter a number to select. \n1. Cook something \n2. See ingredients \n3. See available recipes \n4. Modify ingredient amounts"
+            );
+        
+         switch (userChoice) {
+            case 1:
+               WantToCook(prompt);
+               break;
+            case 2: 
+               sr.IngredientCount(prompt);
+               break;
+            case 3: 
+               sr.compareRecipe(prompt);
+               break;
+            case 4:
+               input(prompt);
+               break;
+            default:
+               System.out.println("Invalid");
+               return;
+         }
+         
+      }
+   
+      public void WantToCook(UserPrompt prompt) { //Enter recipe number - deducts ingredients
+        
+         int recipeNum = prompt.askForNumber("What would you like to cook? Please enter the recipe number.");
+         
+         switch(recipeNum) {
+         
+            case 1: //Apple jam
+               sr.setApples(sr.getApples()-3);
+               prompt.print(sr.RecipeNamesA[0]);
+               break;
+            case 2: //Apple jelly
+               prompt.print(sr.RecipeNamesA[1]);
+               sr.setApples(sr.getApples()-2);
+               break;
+            case 3://Apple Smoothie
+               prompt.print(sr.RecipeNamesA[2]);
+               sr.setApples(sr.getApples()-2);
+               break;
+            case 4: //Apple Tart
+               prompt.print(sr.RecipeNamesA[3]);
+               sr.setApples(sr.getApples()-1);
+               sr.setFlour(sr.getFlour()-1);
+               sr.setSugar(sr.getSugar()-1);
+               break;
+            case 5: //Apple Pie
+               prompt.print(sr.RecipeNamesA[4]);
+               sr.setApples(sr.getApples()-2);
+               sr.setFlour(sr.getFlour()-3);
+               sr.setSugar(sr.getSugar()-2);
+               break;
+            case 6: //Cherry Jam
+               prompt.print(sr.RecipeNamesCh[0]);
+               sr.setCherries(sr.getCherries()-3);
+               break;
+            case 7: //Cherry Jelly
+               prompt.print(sr.RecipeNamesCh[1]);
+               sr.setCherries(sr.getCherries()-2);
+               break;
+            case 8: //Cherry Pie
+               prompt.print(sr.RecipeNamesCh[2]);
+               sr.setCherries(sr.getCherries()-2);
+               sr.setFlour(sr.getFlour()-3);
+               sr.setSugar(sr.getSugar()-2);
+               break;
+            case 9: //Cherry Tart
+               prompt.print(sr.RecipeNamesCh[3]);
+               sr.setCherries(sr.getCherries()-1);
+               sr.setFlour(sr.getFlour()-1);
+               sr.setSugar(sr.getSugar()-1);
+               break;
+            
+            case 10: //Carrot juice 
+               prompt.print(sr.RecipeNamesCa[0]);
+               sr.setCarrots(sr.getCarrots()-2);
+               break;
+            case 11: //Carrot cake
+               prompt.print(sr.RecipeNamesCa[1]);
+               sr.setCarrots(sr.getCarrots()-1);
+               sr.setFlour(sr.getFlour()-1);
+               sr.setSugar(sr.getSugar()-1);
+               break;
+         
+            case 12: //Carrot potage
+               prompt.print((sr.RecipeNamesCa[2]));
+               sr.setCarrots(sr.getCarrots()-2);
+               sr.setFlour(sr.getFlour()-1); 
+               break;
+            
+            default:
+               prompt.print("Invalid entry.");
+         }//End recipeNum switch
+        
+         prompt.print("You have cooked a thing! Good job!");
+         CookAgain(prompt); //cook again? prompt
+      } //end WantToCook method
+   
+      public void input(UserPrompt prompt) { // user inputs ingredient counts
+      
+        //Asks user for ingredients on-hand
+         prompt.print("Please enter how many of each ingredient you have:");
+      
+         sr.setApples(prompt.askForNumber(sr.ingredientsNames[0]));
+      
+         sr.setCherries(prompt.askForNumber(sr.ingredientsNames[1]));
+      
+         sr.setCarrots(prompt.askForNumber(sr.ingredientsNames[2]));
+      
+         sr.setFlour(prompt.askForNumber(sr.ingredientsNames[3]));
+      
+         sr.setSugar(prompt.askForNumber(sr.ingredientsNames[4]));
+      }//end user ingredient input
+   
+      public void CookAgain(UserPrompt prompt) {   
+      
+         int answer = prompt.askForNumber("Would you like to cook again? 1 = yes, 2 = no - ");
+      
+         switch (answer) {
+         
+            case 1: //which means yes
+               if (sr.ingredients[0] >= 1 || sr.ingredients[1] >= 1 || sr.ingredients[2] >= 1) { //no apples, cherries, or carrots
+                  prompt.print("You've used some ingredients. Let's see what you have now.");
+                  sr.IngredientCount(prompt);
+                  sr.compareRecipe(prompt);
+                  WantToCook(prompt);
+                  break;
+               }
+               else {
+                  prompt.print("You don't have enough ingredients left to cook anything.");
+                  break;
+               }
+            case 2: //which means no
+               prompt.print("Ok, done cooking. Enjoy!");
+               break;
+            default:
+               prompt.print("Invalid answer please try again!");
+         
+         }// End answer switch
+      
+      }
+      
    }
 
 //object class
@@ -73,22 +241,6 @@ public interface Round1
          setSugar(sugar);
       }
    
-      public void input(UserPrompt prompt) { // user inputs ingredient counts
-      
-        //Asks user for ingredients on-hand
-         System.out.println("Please enter how many of each ingredient you have:");
-      
-         setApples(prompt.askForNumber(ingredientsNames[0]));
-      
-         setCherries(prompt.askForNumber(ingredientsNames[1]));
-      
-         setCarrots(prompt.askForNumber(ingredientsNames[2]));
-      
-         setFlour(prompt.askForNumber(ingredientsNames[3]));
-      
-         setSugar(prompt.askForNumber(ingredientsNames[4]));
-      }//end user ingredient input
-   
       public void IngredientCount(UserPrompt prompt) { //Lists ingredient input counts
          prompt.print("According to your input, you have:");
       
@@ -98,35 +250,6 @@ public interface Round1
          }//end for loop
       }//end ingredient listing
     
-    
-      public void Selection(UserPrompt prompt){ //Can access every method in class except CookAgain
-         System.out.println("What would you like to do now? Enter a number to select. \n1. Cook something \n2. See ingredients \n3. See available recipes \n4. Modify ingredient amounts");
-        
-        //1. Cook something -- WantToCook()
-        //2. See ingredient list -- IngredientCount()
-        //3. See available recipes -- compareRecipe()
-        //4. Modify total ingredient amounts -- input()
-        //maybe  put this in ShowRecipes, create object for each to put in own classes
-        
-         int selection = kbd.nextInt();
-        
-         switch (selection) {
-            case 1:
-               WantToCook();
-               break;
-            case 2: 
-               IngredientCount(prompt);
-               break;
-            case 3: 
-               compareRecipe();
-               break;
-            case 4:
-               input(prompt);
-               break;
-            default:
-               System.out.println("Invalid");
-               return;
-         }}
     
     //Setters - set from input()
     //Apple setter
@@ -172,61 +295,61 @@ public interface Round1
          return ingredients[4];
       }
    
-      public void compareRecipe() {
+      public void compareRecipe(UserPrompt prompt) {
       
-         System.out.println("According to the input, you can make:");
+         prompt.print("According to the input, you can make:");
       
         //Apples
          if (ingredients[0] >= 3) {
-            System.out.println(RecipeNamesA[0]); //Apple Jam
+            prompt.print(RecipeNamesA[0]); //Apple Jam
          }
          if (ingredients[0] >= 2) {
-            System.out.println(RecipeNamesA[1]); //Apple Jelly
-            System.out.println(RecipeNamesA[2]); //Apple Smoothie
+            prompt.print(RecipeNamesA[1]); //Apple Jelly
+            prompt.print(RecipeNamesA[2]); //Apple Smoothie
          }
       
          if (ingredients[0] >= 1 && ingredients[3] >= 1){
-            System.out.println(RecipeNamesA[3]); //Apple Tart
+            prompt.print(RecipeNamesA[3]); //Apple Tart
          }
       
          if (ingredients[0] >= 2 && ingredients[4] >= 2 && ingredients[3] >= 1){
-            System.out.println(RecipeNamesA[4]); //Apple Pie
+            prompt.print(RecipeNamesA[4]); //Apple Pie
          }
          if (ingredients[0] == 0) {
-            System.out.println("No apple recipes");
+            prompt.print("No apple recipes");
          }
       
         //Cherries
          if (ingredients[1] >= 3) {
-            System.out.println(RecipeNamesCh[0]); //Cherry Jam
+            prompt.print(RecipeNamesCh[0]); //Cherry Jam
          }
          if (ingredients[1] >= 2) {
-            System.out.println(RecipeNamesCh[1]); //Cherry Jelly
+            prompt.print(RecipeNamesCh[1]); //Cherry Jelly
          }
       
          if (ingredients[1] >= 2 && ingredients[3] >= 3 && ingredients[4] >= 2) {
-            System.out.println(RecipeNamesCh[2]); //Cherry Pie
+            prompt.print(RecipeNamesCh[2]); //Cherry Pie
          }
          if (ingredients[1] >= 1 && ingredients[3] <= 1 && ingredients[4] >= 1) {
-            System.out.println(RecipeNamesCh[3]); //Cherry Tart
+            prompt.print(RecipeNamesCh[3]); //Cherry Tart
          }
          if (ingredients[1] == 0) {
-            System.out.println("No cherry recipes");
+            prompt.print("No cherry recipes");
          }
       
         //Carrots
          if (ingredients[2] >= 2) {
-            System.out.println(RecipeNamesCa[0]); //Carrot juice 
+            prompt.print(RecipeNamesCa[0]); //Carrot juice 
          }
          if (ingredients[2] >= 2 && ingredients[3] >= 1) {
-            System.out.println(RecipeNamesCa[2]); //Carrot potage
+            prompt.print(RecipeNamesCa[2]); //Carrot potage
          }
       
          if (ingredients[2] >= 1 && ingredients[3] >= 1 && ingredients[4] >= 1){
-            System.out.println(RecipeNamesCa[1]); //Carrot cake
+            prompt.print(RecipeNamesCa[1]); //Carrot cake
          }   
          if (ingredients[2] == 0) {
-            System.out.println("No carrot recipes");
+            prompt.print("No carrot recipes");
          }
         
       }
@@ -235,113 +358,6 @@ public interface Round1
       private String RecipeNamesCh[] = {"6. Cherry Jam", "7. Cherry Jelly", "8. Cherry Pie", "9. Cherry Tart"}; //Cherry recipes
       private String RecipeNamesCa[] = {"10. Carrot Juice", "11. Carrot Cake","12. Carrot Potage"}; //Carrot recipes
    
-      public void WantToCook() { //Enter recipe number - deducts ingredients
-        
-         System.out.println("What would you like to cook? Please enter the recipe number.");
-         int recipeNum = kbd.nextInt();
-      
-         switch(recipeNum) {
-         
-            case 1: //Apple jam
-               setApples(getApples()-3);
-               System.out.println(RecipeNamesA[0]);
-               break;
-            case 2: //Apple jelly
-               System.out.println(RecipeNamesA[1]);
-               setApples(getApples()-2);
-               break;
-            case 3://Apple Smoothie
-               System.out.println(RecipeNamesA[2]);
-               setApples(getApples()-2);
-               break;
-            case 4: //Apple Tart
-               System.out.println(RecipeNamesA[3]);
-               setApples(getApples()-1);
-               setFlour(getFlour()-1);
-               setSugar(getSugar()-1);
-               break;
-            case 5: //Apple Pie
-               System.out.println(RecipeNamesA[4]);
-               setApples(getApples()-2);
-               setFlour(getFlour()-3);
-               setSugar(getSugar()-2);
-               break;
-            case 6: //Cherry Jam
-               System.out.println(RecipeNamesCh[0]);
-               setCherries(getCherries()-3);
-               break;
-            case 7: //Cherry Jelly
-               System.out.println(RecipeNamesCh[1]);
-               setCherries(getCherries()-2);
-               break;
-            case 8: //Cherry Pie
-               System.out.println(RecipeNamesCh[2]);
-               setCherries(getCherries()-2);
-               setFlour(getFlour()-3);
-               setSugar(getSugar()-2);
-               break;
-            case 9: //Cherry Tart
-               System.out.println(RecipeNamesCh[3]);
-               setCherries(getCherries()-1);
-               setFlour(getFlour()-1);
-               setSugar(getSugar()-1);
-               break;
-            
-            case 10: //Carrot juice 
-               System.out.println(RecipeNamesCa[0]);
-               setCarrots(getCarrots()-2);
-               break;
-            case 11: //Carrot cake
-               System.out.println(RecipeNamesCa[1]);
-               setCarrots(getCarrots()-1);
-               setFlour(getFlour()-1);
-               setSugar(getSugar()-1);
-               break;
-         
-            case 12: //Carrot potage
-               System.out.println((RecipeNamesCa[2]));
-               setCarrots(getCarrots()-2);
-               setFlour(getFlour()-1); 
-               break;
-            
-            default:
-               System.out.println("Invalid entry.");
-         }//End recipeNum switch
-        
-         System.out.println("You have cooked a thing! Good job!");
-         CookAgain(); //cook again? prompt
-      } //end WantToCook method
-   
-      public void CookAgain(UserPrompt prompt) {   
-      
-         System.out.println("Would you like to cook again? Please type yes or no");
-         kbd.nextLine();
-         String answer = kbd.nextLine();
-      
-         switch (answer) {
-         
-            case "yes":
-               if (ingredients[0] >= 1 || ingredients[1] >= 1 || ingredients[2] >= 1) { //no apples, cherries, or carrots
-                  System.out.println("You've used some ingredients. Let's see what you have now.");
-                  IngredientCount(prompt);
-                  compareRecipe();
-                  WantToCook();
-                  break;
-               }
-               else {
-                  System.out.println("You don't have enough ingredients left to cook anything.");
-                  break;
-               }
-            case "no":
-               System.out.println("Ok, done cooking. Enjoy!");
-               break;
-            default:
-               System.out.println("Invalid answer please try again!");
-         
-         }// End answer switch
-      
-         kbd.close(); // close scanner
-      }
    }
 
 }
