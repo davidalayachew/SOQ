@@ -6,11 +6,13 @@ import java.awt.GridLayout;
 public class LayoutTrouble
 {
 
+   private static final int MAX = 10;
+
    public static void main(String[] args)
    {
    
       gridLayoutWithMoreElementsThanPlanned(1, 3, 300, 400);
-      gridLayoutWithMoreElementsThanPlanned(1, 0, 600, 400);
+      gridLayoutWithMoreElementsThanPlanned(1, 0, 800, 400);
    
    }
 
@@ -22,16 +24,18 @@ public class LayoutTrouble
    
       panel.setLayout(new GridLayout(rows, columns));
       
-      panel.add(new JButton("1"));
-      panel.add(new JButton("2"));
-      panel.add(new JButton("3"));
-      panel.add(new JButton("4"));
+      for (int i = 1; i < MAX; i++)
+      {
+      
+         panel.add(new JButton("" + i));
+      
+      }
    
       frame.add(panel);
       
       frame.setTitle("4 buttons in a " + rows + " by " + columns);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      frame.setSize(300, 300);
+      frame.setSize(500, 300);
       frame.setLocation(x, y);
       frame.setVisible(true);
    
