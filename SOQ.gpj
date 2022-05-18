@@ -22,7 +22,7 @@ s#q0src/test/java
 s#r0ignore/bin
 s#t0ignore/help
 s#w0ignore/canvases
-!1548;g
+!1588;g
 %\011src%smain%sjava%sSOQ_20220425.java
 %\011src%smain%sjava%sSOQ_20220415_1.java
 %\011src%smain%sjava%sReworkedRecipeEngine2.java
@@ -58,9 +58,10 @@ s#w0ignore/canvases
 %\011src%smain%sjava%sRound0.java
 %\011src%smain%sjava%sSOQ_20220516_2.java
 %\011src%smain%sjava%sB.java
+%\011src%smain%sjava%sConverterApp.java
 %\011src%smain%sjava%sSOQ_20220515.java
 %\011src%smain%sjava%sSOQ_20220415.java
-!1548;f
+!1588;f
 %\011src%smain%sjava%sSOQ_20220425.java
 %\011src%smain%sjava%sSOQ_20220415_1.java
 %\011src%smain%sjava%sReworkedRecipeEngine2.java
@@ -96,6 +97,7 @@ s#w0ignore/canvases
 %\011src%smain%sjava%sRound0.java
 %\011src%smain%sjava%sSOQ_20220516_2.java
 %\011src%smain%sjava%sB.java
+%\011src%smain%sjava%sConverterApp.java
 %\011src%smain%sjava%sSOQ_20220515.java
 %\011src%smain%sjava%sSOQ_20220415.java
 !27;m
