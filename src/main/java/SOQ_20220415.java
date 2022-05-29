@@ -24,6 +24,8 @@ public class SOQ_20220415
       final List<AnotherObject> otherObjects = List.of(new AnotherObject());
       
       attempt2(objects, otherObjects);
+      
+      System.out.println("Running");
    
    }
    
