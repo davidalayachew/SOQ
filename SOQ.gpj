@@ -22,9 +22,10 @@ s#q0src/test/java
 s#r0ignore/bin
 s#t0ignore/help
 s#w0ignore/canvases
-!1914;g
+!1996;g
 %\011src%smain%sjava%sSOQ_20220425.java
 %\011src%smain%sjava%sSOQ_20220415_1.java
+%\011src%smain%sjava%sSOQ_20220605.java
 %\011src%smain%sjava%sReworkedRecipeEngine2.java
 %\011src%smain%sjava%sReworkedRecipeEngine.java
 %\011src%smain%sjava%sRecipe.java
@@ -40,6 +41,7 @@ s#w0ignore/canvases
 %\011src%smain%sjava%sSOQ_20220416.java
 %\011src%smain%sjava%soops.java
 %\011src%smain%sjava%sDriver.java
+%\011src%smain%sjava%sSOQ_20220605_2.java
 %\011src%smain%sjava%sMain.java
 %\011src%smain%sjava%sSOQ_20220505_1.java
 %\011src%smain%sjava%sSOQ_20220516.java
@@ -69,9 +71,10 @@ s#w0ignore/canvases
 %\011src%smain%sjava%sRockPaperScissors.java
 %\011src%smain%sjava%sSOQ_20220515.java
 %\011src%smain%sjava%sSOQ_20220415.java
-!1914;f
+!1996;f
 %\011src%smain%sjava%sSOQ_20220425.java
 %\011src%smain%sjava%sSOQ_20220415_1.java
+%\011src%smain%sjava%sSOQ_20220605.java
 %\011src%smain%sjava%sReworkedRecipeEngine2.java
 %\011src%smain%sjava%sReworkedRecipeEngine.java
 %\011src%smain%sjava%sRecipe.java
@@ -87,6 +90,7 @@ s#w0ignore/canvases
 %\011src%smain%sjava%sSOQ_20220416.java
 %\011src%smain%sjava%soops.java
 %\011src%smain%sjava%sDriver.java
+%\011src%smain%sjava%sSOQ_20220605_2.java
 %\011src%smain%sjava%sMain.java
 %\011src%smain%sjava%sSOQ_20220505_1.java
 %\011src%smain%sjava%sSOQ_20220516.java
