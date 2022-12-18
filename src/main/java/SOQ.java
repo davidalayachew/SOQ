@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.*;
 
 public class SOQ
 {
@@ -13,7 +14,56 @@ public class SOQ
    public SOQ()
    {
    
-      this.soq_20221209();
+      this.soq_20221217_better();
+   
+   }
+   
+   private void soq_20221217_better() // https://stackoverflow.com/questions/74838895/java8-flatmap-mapstring-liststring-to-mapstring-integer-where-the-int
+   {
+   
+      //https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#summingInt-java.util.function.ToIntFunction-
+      final Map<String, List<String>> map = new HashMap<>();
+      
+      map.put("abc", List.of("a", "b", "c"));
+      map.put("defg", List.of("d", "e", "f", "g"));
+      map.put("hijkl", List.of("h", "i", "j", "k", "l"));
+      
+      final 
+         Map<String, Integer> 
+         //var 
+         counts = 
+            map
+               .entrySet()
+               .stream()
+               .collect(Collectors.toMap(Map.Entry::getKey, (each) -> each.getValue().size()))
+               ;
+         
+      counts.entrySet().forEach(System.out::println);
+   
+   }
+   
+   private void soq_20221217() // https://stackoverflow.com/questions/74838895/java8-flatmap-mapstring-liststring-to-mapstring-integer-where-the-int
+   {
+   
+      //https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#summingInt-java.util.function.ToIntFunction-
+      final Map<String, List<String>> map = new HashMap<>();
+      
+      map.put("abc", List.of("a", "b", "c"));
+      map.put("defg", List.of("d", "e", "f", "g"));
+      map.put("hijkl", List.of("h", "i", "j", "k", "l"));
+      
+      final 
+         Map<String, Integer> 
+         //var 
+         counts = 
+            map
+               .entrySet()
+               .stream()
+               .flatMap(each -> Stream.of(Map.entry(each.getKey(), each.getValue().size())))
+               .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue))
+               ;
+         
+      counts.entrySet().forEach(System.out::println);
    
    }
    
