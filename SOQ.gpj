@@ -22,9 +22,10 @@ s#q0src/test/java
 s#r0ignore/bin
 s#t0ignore/help
 s#w0ignore/canvases
-!2198;g
+!2244;g
 %\011src%smain%sjava%sSOQ_20220605.java
 %\011src%smain%sjava%sReworkedRecipeEngine2.java
+%\011src%smain%sjava%sNonAttackingQueens.java
 %\011src%smain%sjava%sCardObject.java
 %\011src%smain%sjava%sSOQ_20220514.java
 %\011src%smain%sjava%sSOQ_20220515_1.java
@@ -76,9 +77,10 @@ s#w0ignore/canvases
 %\011src%smain%sjava%sNameOfTheOldest.java
 %\011src%smain%sjava%sRockPaperScissors.java
 %\011src%smain%sjava%sSOQ_20220515.java
-!2198;f
+!2244;f
 %\011src%smain%sjava%sSOQ_20220605.java
 %\011src%smain%sjava%sReworkedRecipeEngine2.java
+%\011src%smain%sjava%sNonAttackingQueens.java
 %\011src%smain%sjava%sCardObject.java
 %\011src%smain%sjava%sSOQ_20220514.java
 %\011src%smain%sjava%sSOQ_20220515_1.java
