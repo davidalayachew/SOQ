@@ -33,7 +33,51 @@ public class SOQ
       new SOQ_20221226_2();
    
    }
+
+   public class SOQ_20221226_3
+   {
    
+      public SOQ_20221226_3()
+      {
+      
+      
+      
+      }
+   
+      public void obviousSolution()
+      {
+      
+         final CompletableFuture<Boolean> f1 = CompletableFuture.supplyAsync(() -> myMethod(1));
+         final CompletableFuture<Boolean> f2 = CompletableFuture.supplyAsync(() -> myMethod(3));
+         final CompletableFuture<Boolean> f3 = CompletableFuture.supplyAsync(() -> myMethod(5));
+         final CompletableFuture<Boolean> f4 = CompletableFuture.supplyAsync(() -> myMethod(6));
+      
+         final var listOfResponses = List.of(f1, f2, f3, f4);
+      
+         final CompletableFuture<Object> result =
+            CompletableFuture
+               .allOf
+               (
+                  f1,
+                  f2,
+                  f3,
+                  f4
+               )
+               .thenApply(__ -> listOfResponses.stream().filter(CompletableFuture::join).toList());
+      
+      
+      
+      }
+   
+      public static boolean myMethod(final int input)
+      {
+      
+         return input % 2 == 0;
+      
+      }
+   
+   }
+
    public class SOQ_20221226_2
    {
    
@@ -43,7 +87,7 @@ public class SOQ
          System.out.println(someMathFunction(643));
       
       }
-      
+   
       public static boolean someMathFunction(final int num)
       {
       
@@ -51,7 +95,7 @@ public class SOQ
       
          incrementCheck:
          {
-            
+         
             final int i1 = (num / 100) % 10;
             final int i2 = (num / 10)  % 10;
             final int i3 = num % 10;
@@ -120,7 +164,7 @@ public class SOQ
       }
    
    }
-   
+
    public class SOQ_20221226_1
    {
    
@@ -148,7 +192,7 @@ public class SOQ
          public FunctionsAndGenerics()
          {
          
-            final SetNodeFunction<String> function = (mapTo) -> (nl -> 
+            final SetNodeFunction<String> function = (mapTo) -> (nl ->
                   IntStream
                      .range(0, nl.getLength())
                      .mapToObj(i -> mapTo.apply(nl.item(i)))
@@ -177,7 +221,7 @@ public class SOQ
       }
    
    }
-   
+
    public class SOQ_20221226
    {
    
@@ -185,7 +229,7 @@ public class SOQ
       {
       
       
-         new FunctionsAndGenerics((mapTo) -> (nl -> 
+         new FunctionsAndGenerics((mapTo) -> (nl ->
                   IntStream
                      .range(0, nl.getLength())
                      .mapToObj(i -> mapTo.apply(nl.item(i)))
@@ -232,7 +276,7 @@ public class SOQ
       }
    
    }
-   
+
    public class Visualization extends JPanel implements Scrollable, MouseWheelListener
    {
       private double zoomFactor = 1;
@@ -240,7 +284,7 @@ public class SOQ
       private boolean zoomer;
       private double xOffset = 0;
       private double yOffset = 0;
-    
+   
       public Visualization()
       {
          addMouseWheelListener(this);
@@ -249,14 +293,14 @@ public class SOQ
          setFont(newFont);
          setBackground(Color.WHITE);
       }
-    
+   
       @Override
-      protected void paintComponent(Graphics g) 
+      protected void paintComponent(Graphics g)
       {
          super.paintComponent(g);
          Graphics2D g2d = (Graphics2D) g.create();
-        
-         if(zoomer) 
+      
+         if(zoomer)
          {
             AffineTransform at = new AffineTransform();
          
@@ -274,67 +318,67 @@ public class SOQ
             g2d.transform(at);
             zoomer = false;
          }
-         
+      
          g2d.drawString("1234567890", 500, 200);
-            
+      
          g2d.dispose();
       }
-    
+   
       @Override
-      public void mouseWheelMoved(MouseWheelEvent e) 
+      public void mouseWheelMoved(MouseWheelEvent e)
       {
          zoomer = true;
       
-         if (e.getWheelRotation() < 0) 
+         if (e.getWheelRotation() < 0)
          {
             zoomFactor *= 1.1;
             repaint();
          }
-        
-         if (e.getWheelRotation() > 0) 
+      
+         if (e.getWheelRotation() > 0)
          {
             zoomFactor /= 1.1;
             repaint();
          }
       }
-    
+   
       @Override
-        public Dimension getPreferredSize() 
+        public Dimension getPreferredSize()
       {
          return new Dimension(2000, 800);
       }
    
       @Override
-        public Dimension getPreferredScrollableViewportSize() 
+        public Dimension getPreferredScrollableViewportSize()
       {
          return new Dimension(1550, 800);
       }
    
       @Override
-        public int getScrollableUnitIncrement(Rectangle visibleRect, int orientation, int direction) 
+        public int getScrollableUnitIncrement(Rectangle visibleRect, int orientation, int direction)
       {
          return 32;
       }
    
       @Override
-        public int getScrollableBlockIncrement(Rectangle visibleRect, int orientation, int direction) 
+        public int getScrollableBlockIncrement(Rectangle visibleRect, int orientation, int direction)
       {
          return 32;
       }
    
       @Override
-        public boolean getScrollableTracksViewportWidth() 
+        public boolean getScrollableTracksViewportWidth()
       {
          return false;
       }
    
       @Override
-        public boolean getScrollableTracksViewportHeight() 
+        public boolean getScrollableTracksViewportHeight()
       {
          return false;
       }
    }
-   
+
    public class SomeTest implements Runnable
    {
    
@@ -346,34 +390,34 @@ public class SOQ
       }
    
       @Override
-      public void run() 
+      public void run()
       {
          JFrame f = new JFrame("Example");
          Visualization v = new Visualization();
          JScrollPane sp = new JScrollPane(v);
       
-         MouseAdapter mouseAdapter = 
-            new MouseAdapter() 
+         MouseAdapter mouseAdapter =
+            new MouseAdapter()
             {
                private Point origin;
             
                @Override
-               public void mousePressed(MouseEvent e) 
+               public void mousePressed(MouseEvent e)
                {
                   origin = new Point(e.getPoint());
                }
-             
+            
                @Override
-               public void mouseDragged(MouseEvent e) 
+               public void mouseDragged(MouseEvent e)
                {
                   JViewport vp = null;
-                
-                  if (origin != null) 
+               
+                  if (origin != null)
                   {
                      vp = sp.getViewport();
                   }
-                
-                  if (vp != null) 
+               
+                  if (vp != null)
                   {
                      int deltaX = origin.x - e.getX();
                      int deltaY = origin.y - e.getY();
@@ -389,7 +433,7 @@ public class SOQ
       
          sp.getViewport().addMouseListener(mouseAdapter);
          sp.getViewport().addMouseMotionListener(mouseAdapter);
-        
+      
          f.add(sp);
          f.setContentPane(sp);
          f.pack();
@@ -398,7 +442,7 @@ public class SOQ
          f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       }
    }
-   
+
    public class IA2 extends JFrame implements ActionListener{
    
    
@@ -438,9 +482,9 @@ public class SOQ
          back.addActionListener(this);
          back.setText("Back");
          back.setFocusable(false);
-         
+      
          frame1.pack();
-         
+      
       }
    
       @Override
@@ -453,10 +497,10 @@ public class SOQ
             frame2.pack();
          
          }
-         
-         
+      
+      
          if(e.getSource()==back) {
-            
+         
             frame2.dispose();
             frame1.setVisible(true);
             frame1.pack();
@@ -464,7 +508,7 @@ public class SOQ
       }
    
    }
-   
+
    private class SOQ_20221222_1
    {
    
