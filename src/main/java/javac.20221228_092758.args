@@ -1,0 +1,9 @@
+-d
+..\\..\\..\\target\\classes
+-g
+-Xlint:all,-preview,-serial,-auxiliaryclass
+--enable-preview
+--release
+19
+-Xdiags:verbose
+SOQ.java

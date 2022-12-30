@@ -20,6 +20,38 @@ import javax.imageio.metadata.IIOMetadataNode;
 public class SOQ
 {
 
+   public abstract static sealed class E
+   {
+   
+      /** E's implementation of m. */
+      abstract void m();
+   
+   }
+   
+   public static final class A extends E
+   {
+   
+      public static final A SINGLETON = new A();
+   
+      private A(){}
+      
+      /** A's implementation of m. */
+      void m() {}
+   
+   }
+   
+   public static final class B extends E
+   {
+   
+      public static final B SINGLETON = new B();
+   
+      private B(){}
+      
+      @Override
+      void m() {}
+   
+   }
+
    public static void main(String[] args)
    {
    
