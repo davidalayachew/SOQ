@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -20,38 +21,6 @@ import javax.imageio.metadata.IIOMetadataNode;
 public class SOQ
 {
 
-   public abstract static sealed class E
-   {
-   
-      /** E's implementation of m. */
-      abstract void m();
-   
-   }
-   
-   public static final class A extends E
-   {
-   
-      public static final A SINGLETON = new A();
-   
-      private A(){}
-      
-      /** A's implementation of m. */
-      void m() {}
-   
-   }
-   
-   public static final class B extends E
-   {
-   
-      public static final B SINGLETON = new B();
-   
-      private B(){}
-      
-      @Override
-      void m() {}
-   
-   }
-
    public static void main(String[] args)
    {
    
@@ -62,7 +31,318 @@ public class SOQ
    public SOQ()
    {
    
-      new SOQ_20221226_2();
+      new SOQ_20230108();
+   
+   }
+   
+   public class SOQ_20230108
+   {
+   
+      public static void main(String[] args)
+      {
+      
+         System.out.println(getParentTypeList(EstimateFuelType.class));
+         System.out.println(getParentTypeList(EstimateTransmissionType.class));
+      
+      }
+   
+      public interface ParentInterface<E extends Enum<E>> // pick a better name
+      {
+      
+         String getName();
+         String getValue();
+         String getCode();
+         
+         public static <E extends Enum<E> & ParentInterface<E>> List<E> values(final Class<E> clazz)
+         {
+         
+            return Arrays.asList(clazz.getEnumConstants());
+         
+         }
+      
+      }
+   
+      public enum EstimateFuelType implements ParentInterface<EstimateFuelType>
+      {
+      
+         GASOLINE("가솔린", "A001", "001"),
+         DIESEL("디젤", "A002", "002"),
+         LPG_GENERAL("LPG(일반인 구입)", "A003", "003"),
+         LPG_ALL("LPG", "A004", "004"),
+         HYBRID("가솔린+전기", "A005", "005"),
+         ELECTRONIC("전기", "A009", "009"),
+         ETC("기타", "A999", "999");
+      
+         final String name;
+         final String value;
+         final String code;
+      
+         EstimateFuelType(String name, String value, String code) 
+         {
+            
+            this.name = name;
+            this.value = value;
+            this.code = code;
+         
+         }
+      
+         public String getName() 
+         {
+            
+            return name;
+         
+         }
+      
+         public String getValue() 
+         {
+            
+            return value;
+         
+         }
+      
+         public String getCode() 
+         {
+            
+            return code;
+         
+         }
+      
+      }
+   
+      public enum EstimateTransmissionType implements ParentInterface<EstimateTransmissionType>
+      {
+      
+         AUTO("오토(A/T)", "A001", "001"),
+         MANUAL("수동(M/T)", "A002", "002"),
+         ETC("기타", "A999", "999");
+      
+         final String name;
+         final String value;
+         final String code;
+      
+         EstimateTransmissionType(String name, String value, String code) 
+         {
+            
+            this.name = name;
+            this.value = value;
+            this.code = code;
+         
+         }
+      
+         public String getName() 
+         {
+            
+            return name;
+         
+         }
+      
+         public String getValue() 
+         {
+            
+            return value;
+         
+         }
+      
+         public String getCode() 
+         {
+            
+            return code;
+         
+         }
+      
+      }
+   
+      public static <E extends Enum<E> & ParentInterface<E>> List<Map<String, Object>> getParentTypeList(Class<E> clazz) {
+      
+         final List<Map<String, Object>> typeList = new ArrayList<>();
+      
+         for(final E type : ParentInterface.values(clazz)) {
+            final Map<String, Object> typeMap = new HashMap<>();
+            typeMap.put("code", type.getCode());
+            typeMap.put("value", type.getValue());
+            typeMap.put("name", type.getName());
+            typeList.add(typeMap);
+         }
+      
+         return typeList;
+      
+      }
+   
+      public static <E extends Enum<E> & ParentInterface<E>> List<Map<String, Object>> getGenericTypeList(final Class<E> clazz) {
+      
+         List<Map<String, Object>> fuelList = new ArrayList<>();
+      
+         for(E fuelType : ParentInterface.values(clazz)) {
+            Map<String, Object> transmission = new HashMap<>();
+            transmission.put("code", fuelType.getCode());
+            transmission.put("value", fuelType.getValue());
+            transmission.put("name", fuelType.getName());
+            fuelList.add(transmission);
+         }
+      
+         return fuelList;
+      
+      }
+   
+   }
+   
+   public class SOQ_20230102_1
+   {
+   
+      public SOQ_20230102_1()
+      {
+      
+         SwingUtilities.invokeLater(TestGui::new);
+      
+      }
+   
+      static class EntryListPanelTest extends JPanel {
+         public EntryListPanelTest(String entryText){
+            String[] entryTextSplit = entryText.split(":");
+            setLayout(new BorderLayout());
+            JButton button = new JButton(entryTextSplit[0]);
+            JLabel label = new JLabel(entryTextSplit[1]);
+            label.setVisible(false);
+         
+            add(button, BorderLayout.NORTH);
+            add(label, BorderLayout.CENTER);
+         
+            button.addActionListener(e -> label.setVisible(!label.isVisible()));
+         }
+      }
+   
+      static class ListPanelTest extends JPanel {
+         String[] entryTexts = {"dropdown1:content1", "dropdown2:content2", "dropdown3:content3"};
+         ArrayList<EntryListPanelTest> entryPanels;
+      
+         public ListPanelTest(){
+            setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+            entryPanels = new ArrayList<>();
+            for (String entryText: entryTexts) {
+               EntryListPanelTest entryListPanel = new EntryListPanelTest(entryText);
+               entryPanels.add(entryListPanel);
+               add(entryListPanel);
+            }
+         
+            addMouseWheelListener(
+               e -> {
+                  for (EntryListPanelTest entryPanel : entryPanels) {
+                     entryPanel.setLocation(entryPanel.getX(), entryPanel.getY() - e.getWheelRotation() * 20);
+                  }
+               });
+         }
+      }
+   
+      public static class TestGui extends JFrame {
+      
+         public TestGui() {
+            setDefaultCloseOperation(EXIT_ON_CLOSE);
+            setLocationRelativeTo(null);
+            add(new ListPanelTest());
+            pack();
+            setVisible(true);
+         }
+      }
+   
+   }
+
+   public static class SOQ_20230102
+   {
+   
+      static interface MyEnum<E extends Enum<? extends E> & MyEnum<E, T>, T>
+      {
+      
+         public static <E extends Enum<? extends E> & MyEnum<E, T>, T> E valueOfAttribute(Class<? extends E> enumClass, T attributeValue)
+         {
+         
+            for (final E enumConstant : enumClass.getEnumConstants())
+            {
+            
+               if (Objects.equals(enumConstant.attribute(), attributeValue))
+               {
+               
+                  return enumConstant;
+               
+               }
+            
+            }
+         
+            throw new IllegalArgumentException("no enum constant, from " + enumClass + ", for " + attributeValue);
+         
+         }
+      
+         T attribute();
+      
+      }
+   
+      static interface YourEnum<E extends Enum<E> & MyEnum<E, String>> extends MyEnum<E, String>
+      {
+      
+         @Override
+         default String attribute()
+         {
+         
+            return ((Enum<?>) this).name();
+         
+         }
+      
+      }
+   
+      static enum HisEnum implements YourEnum<HisEnum>
+      {
+      
+         HIS,
+         ;
+      
+      }
+   
+      static enum HerEnum implements YourEnum<HerEnum>
+      {
+      
+         HER,
+         ;
+      
+      }
+   
+      static <E extends Enum<E> & MyEnum<E, T>, T> E valueOfAttribute(T attributeValue, List<Class<? extends E>> enumClasses)
+      {
+      
+         return
+            enumClasses
+               .stream()
+               .map
+               (
+                  t ->
+                  {
+                  
+                     try
+                     {
+                     
+                        return MyEnum.valueOfAttribute(t, attributeValue); // won't compile
+                     
+                     }
+                     
+                     catch (IllegalArgumentException iae)
+                     {
+                     
+                        return null;
+                     
+                     }
+                  
+                  }
+               )
+               .filter(Objects::nonNull)
+               .findFirst()
+               .orElseThrow(() -> new IllegalArgumentException("no enum constant, from " + enumClasses + " for " + attributeValue));
+      
+      }
+   
+      public SOQ_20230102()
+      {
+      
+         //System.out.println(valueOfAttribute("ABC", List.of(HerEnum.class, HisEnum.class)));
+      
+      }
    
    }
 
