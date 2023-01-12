@@ -31,10 +31,178 @@ public class SOQ
    public SOQ()
    {
    
-      new SOQ_20230108();
+      new SOQ_20230110();
    
    }
    
+   public class SOQ_20230110
+   {
+   
+      public SOQ_20230110()
+      {
+      
+         PlayerQueue playerQueue = new PlayerQueue();
+         Executor executor = Executors.newFixedThreadPool(10);
+         for (int i = 0; i < 10; ++i) {
+            String user = "user" + Integer.toString(i);
+            executor.execute(() -> System.out.println(playerQueue.battle(user)));
+         }
+      
+      }
+   
+      public class PlayerQueue {
+         private final BlockingQueue<String> blockingQueue = new LinkedBlockingQueue<>(1);
+         private final ConcurrentMap<String, String> userIdToResponse = new ConcurrentHashMap<>();
+      
+         public String battle(String user) {
+            String opponent = null;
+            try {
+               boolean stopLoop = false;
+               while (!stopLoop) {
+                  if (blockingQueue.remainingCapacity() > 0) {
+                     stopLoop = blockingQueue.offer(user, 1, TimeUnit.SECONDS);
+                  } else {
+                     opponent = blockingQueue.poll(500, TimeUnit.MILLISECONDS);
+                     if (opponent != null) {
+                        System.out.println("starting game");
+                        String outcome = match(user, opponent);
+                        userIdToResponse.put(opponent, outcome);
+                        return outcome;
+                     }
+                  }
+               }
+            } catch (InterruptedException e) {
+               e.printStackTrace();
+               return "SOMETHING WENT WRONG";
+            }
+         
+            if (opponent == null) {
+               while (!userIdToResponse.containsKey(user)) {
+               }
+               return userIdToResponse.get(user);
+            }
+         
+            return "ERROR";
+         }
+      
+         private String match(String user1, String user2) {
+            return user1 + " vs. " + user2;
+         }
+      }
+   
+   
+   }
+
+   public class SOQ_20230109
+   {
+   
+      public SOQ_20230109()
+      {
+      
+         new Main();
+      
+      }
+   
+      public class Main {
+      
+         public static class Player
+         {
+         
+            int health = 0;
+            String name = "";
+            double damage = 0.0;
+            int bonusDamage = 0;
+         
+         }
+      
+         static Scanner scanner = new Scanner(System.in);
+         static Player player = new Player();
+         static Player enemyA = new Player();
+      
+         public Main() {
+         
+            PlayerAndEnemyCreation();
+         
+            do {
+            
+               Header();
+            
+               byte scannerInput = scanner.nextByte();
+            
+               options(scannerInput);
+            
+            } while (enemyA.health > 0 || player.health < 0);
+         
+         }
+         static void PlayerAndEnemyCreation ()
+         {
+            player.health = 100;
+            player.name = "Player A";
+            player.damage = 5.5;
+         
+            enemyA.health = 127;
+            enemyA.name = "Enemy A";
+            enemyA.damage = 4.4;
+         
+            System.out.println(player.name + " has " + player.health +
+                " health and " + player.damage + " damage.");
+            System.out.println(enemyA.name + " has " + enemyA.health +
+                " health and " + enemyA.damage + " damage.");
+         }
+         
+         static void Header ()
+         {
+            System.out.println("\n Your turn to fight!" + " Choose the options below. \n");
+            System.out.println("============");
+            System.out.println("1) Attack");
+         
+            if (player.health < 100) {
+               System.out.println("2) Heal");
+            } else {
+               System.out.println("2) Heal (Player is on max health)");
+            }
+         
+            System.out.println("3) Skip turn and let the enemy attack");
+         
+            System.out.println("============");
+         }
+         
+         static void options (byte scannerInput)
+         {
+            switch (scannerInput) {
+               case 1:
+                  player.bonusDamage = ThreadLocalRandom.current().nextInt(0, 10);
+                  player.damage = player.damage + player.bonusDamage;
+                  enemyA.health = (int) (enemyA.health - player.damage);
+                  player.health = player.health - ThreadLocalRandom.current().nextInt(1, 25);
+                  if (enemyA.health <= 0) {
+                     System.out.println(enemyA.name + " has died! " + player.name + " win!");
+                  } else {
+                     System.out.println(enemyA.name + " has a remaining health of " + enemyA.health + ".");
+                  }
+                  break;
+               case 2:
+                  if (player.health < 100) {
+                     player.health = player.health + ThreadLocalRandom.current().nextInt(1, 4);
+                     System.out.println(player.name + " is at " + player.health + ".");
+                  } else {
+                     System.out.println(player.name + " is already at the max health.");
+                  }
+                  break;
+               case 3:
+                  player.health = player.health - ThreadLocalRandom.current().nextInt(1, 25);
+                  if (player.health <= 0) {
+                     System.out.println(player.name + " has died! " + player.name + " loses!");
+                  } else {
+                     System.out.println(player.name + " has a remaining health of " + player.health + ".");
+                  }
+                  break;
+            }
+         }
+      }
+   
+   }
+
    public class SOQ_20230108
    {
    
@@ -52,7 +220,7 @@ public class SOQ
          String getName();
          String getValue();
          String getCode();
-         
+      
          public static <E extends Enum<E> & ParentInterface<E>> List<E> values(final Class<E> clazz)
          {
          
@@ -77,32 +245,32 @@ public class SOQ
          final String value;
          final String code;
       
-         EstimateFuelType(String name, String value, String code) 
+         EstimateFuelType(String name, String value, String code)
          {
-            
+         
             this.name = name;
             this.value = value;
             this.code = code;
          
          }
       
-         public String getName() 
+         public String getName()
          {
-            
+         
             return name;
          
          }
       
-         public String getValue() 
+         public String getValue()
          {
-            
+         
             return value;
          
          }
       
-         public String getCode() 
+         public String getCode()
          {
-            
+         
             return code;
          
          }
@@ -120,32 +288,32 @@ public class SOQ
          final String value;
          final String code;
       
-         EstimateTransmissionType(String name, String value, String code) 
+         EstimateTransmissionType(String name, String value, String code)
          {
-            
+         
             this.name = name;
             this.value = value;
             this.code = code;
          
          }
       
-         public String getName() 
+         public String getName()
          {
-            
+         
             return name;
          
          }
       
-         public String getValue() 
+         public String getValue()
          {
-            
+         
             return value;
          
          }
       
-         public String getCode() 
+         public String getCode()
          {
-            
+         
             return code;
          
          }
@@ -185,7 +353,7 @@ public class SOQ
       }
    
    }
-   
+
    public class SOQ_20230102_1
    {
    
