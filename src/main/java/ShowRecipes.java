@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 //object class
+@SuppressWarnings({"this-escape"})
 public class ShowRecipes {
 
    public static void main (String [] args){

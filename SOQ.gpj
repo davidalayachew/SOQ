@@ -23,7 +23,7 @@ s#q0src/test/java
 s#r0ignore/bin
 s#t0ignore/help
 s#w0ignore/canvases
-!2244;g
+!2286;g
 %\011src%smain%sjava%sHolidaycharitydonations.java
 %\011src%smain%sjava%sSOQ.java
 %\011src%smain%sjava%sUserPrompt.java
@@ -57,6 +57,7 @@ s#w0ignore/canvases
 %\011src%smain%sjava%sRockPaperScissors.java
 %\011src%smain%sjava%sShowRecipesNew.java
 %\011src%smain%sjava%sRound1.java
+%\011src%smain%sjava%sSOQ_20230731_1.java
 %\011src%smain%sjava%sSOQ_20220425.java
 %\011src%smain%sjava%sSOQ_20220516_1.java
 %\011src%smain%sjava%sMain.java
@@ -78,7 +79,7 @@ s#w0ignore/canvases
 %\011src%smain%sjava%sSOQ_20220501.java
 %\011src%smain%sjava%sCR_20220523.java
 %\011src%smain%sjava%sSOQ_20220528_2.java
-!2244;f
+!2286;f
 %\011src%smain%sjava%sHolidaycharitydonations.java
 %\011src%smain%sjava%sSOQ.java
 %\011src%smain%sjava%sUserPrompt.java
@@ -112,6 +113,7 @@ s#w0ignore/canvases
 %\011src%smain%sjava%sRockPaperScissors.java
 %\011src%smain%sjava%sShowRecipesNew.java
 %\011src%smain%sjava%sRound1.java
+%\011src%smain%sjava%sSOQ_20230731_1.java
 %\011src%smain%sjava%sSOQ_20220425.java
 %\011src%smain%sjava%sSOQ_20220516_1.java
 %\011src%smain%sjava%sMain.java

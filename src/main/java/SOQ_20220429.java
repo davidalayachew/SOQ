@@ -1,6 +1,7 @@
 import java.util.Collection;
 import java.util.List;
 
+@SuppressWarnings({"this-escape"})
 public class SOQ_20220429
 {
 

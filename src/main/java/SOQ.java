@@ -18,6 +18,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import javax.imageio.metadata.IIOMetadataNode;
 
+@SuppressWarnings({"this-escape"})
 public class SOQ
 {
 

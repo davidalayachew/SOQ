@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+@SuppressWarnings({"this-escape"})
 public interface Round0
 {
 

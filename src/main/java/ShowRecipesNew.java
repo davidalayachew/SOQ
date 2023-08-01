@@ -3,6 +3,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 //object class
+@SuppressWarnings({"this-escape"})
 public class ShowRecipesNew {
 
  //ingredients array - setters will set

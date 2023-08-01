@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+@SuppressWarnings({"this-escape"})
 public class SOQ_20220519 {
    public static void main(String[] args) {
       new SOQ_20220519();
