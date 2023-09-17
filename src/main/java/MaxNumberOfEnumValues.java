@@ -1,0 +1,6 @@
+public enum MaxNumberOfEnumValues
+{
+
+   A;
+
+}
