@@ -1,0 +1,9 @@
+-d
+..\\..\\..\\target\\classes
+-g
+-Xlint:all,-preview,-serial
+-Xdiags:verbose
+--enable-preview
+--source
+21
+SOQ_20230926.java

@@ -25,10 +25,11 @@ s#r0ignore/bin
 s#t0ignore/help
 s#w0ignore/canvases
 !64;u
-a1	b68	c255	f%\011SOQ.jar	g%\011SOQ.zip	hManifest-Version\0111.0!2408;g
+a1	b68	c255	f%\011SOQ.jar	g%\011SOQ.zip	hManifest-Version\0111.0!2448;g
 %\011src%smain%sjava%sHolidaycharitydonations.java
 %\011src%smain%sjava%sSOQ.java
 %\011src%smain%sjava%sUserPrompt.java
+%\011src%smain%sjava%sSOQ_20230926.java
 %\011src%smain%sjava%sSOQ_20220415.java
 %\011src%smain%sjava%sSOQ_20220528.java
 %\011src%smain%sjava%sSOQ_20220515.java
@@ -84,10 +85,11 @@ a1	b68	c255	f%\011SOQ.jar	g%\011SOQ.zip	hManifest-Version\0111.0!2408;g
 %\011src%smain%sjava%sSOQ_20220501.java
 %\011src%smain%sjava%sCR_20220523.java
 %\011src%smain%sjava%sSOQ_20220528_2.java
-!2408;f
+!2448;f
 %\011src%smain%sjava%sHolidaycharitydonations.java
 %\011src%smain%sjava%sSOQ.java
 %\011src%smain%sjava%sUserPrompt.java
+%\011src%smain%sjava%sSOQ_20230926.java
 %\011src%smain%sjava%sSOQ_20220415.java
 %\011src%smain%sjava%sSOQ_20220528.java
 %\011src%smain%sjava%sSOQ_20220515.java
