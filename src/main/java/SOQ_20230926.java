@@ -18,7 +18,58 @@ public class SOQ_20230926
                .of
                (
                   List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
+                  List.of(new Item(1), new Item(2), new Item(3)),
                   List.of(new Item(4), new Item(5), new Item(6)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
+                  List.of(new Item(7), new Item(8), new Item(9)),
                   List.of(new Item(7), new Item(8), new Item(9))
                )
          )
@@ -43,7 +94,7 @@ public class SOQ_20230926
    
       return
          pointA
-            .sequential()
+            .parallel()
             .map
             (
                eachFuture ->
