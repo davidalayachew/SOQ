@@ -25,8 +25,9 @@ s#r0ignore/bin
 s#t0ignore/help
 s#w0ignore/canvases
 !64;u
-a1	b68	c255	f%\011SOQ.jar	g%\011SOQ.zip	hManifest-Version\0111.0!2532;g
+a1	b68	c255	f%\011SOQ.jar	g%\011SOQ.zip	hManifest-Version\0111.0!2570;g
 %\011src%smain%sjava%sHolidaycharitydonations.java
+%\011src%smain%sjava%sMyPaintApp.java
 %\011src%smain%sjava%sSOQ.java
 %\011src%smain%sjava%sUserPrompt.java
 %\011src%smain%sjava%sSOQ_20230926.java
@@ -87,8 +88,9 @@ a1	b68	c255	f%\011SOQ.jar	g%\011SOQ.zip	hManifest-Version\0111.0!2532;g
 %\011src%smain%sjava%sSOQ_20220501.java
 %\011src%smain%sjava%sCR_20220523.java
 %\011src%smain%sjava%sSOQ_20220528_2.java
-!2532;f
+!2570;f
 %\011src%smain%sjava%sHolidaycharitydonations.java
+%\011src%smain%sjava%sMyPaintApp.java
 %\011src%smain%sjava%sSOQ.java
 %\011src%smain%sjava%sUserPrompt.java
 %\011src%smain%sjava%sSOQ_20230926.java
