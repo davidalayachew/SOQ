@@ -25,7 +25,7 @@ s#r0ignore/bin
 s#t0ignore/help
 s#w0ignore/canvases
 !64;u
-a1	b68	c255	f%\011SOQ.jar	g%\011SOQ.zip	hManifest-Version\0111.0!2570;g
+a1	b68	c255	f%\011SOQ.jar	g%\011SOQ.zip	hManifest-Version\0111.0!2819;g
 %\011src%smain%sjava%sHolidaycharitydonations.java
 %\011src%smain%sjava%sMyPaintApp.java
 %\011src%smain%sjava%sSOQ.java
@@ -67,6 +67,7 @@ a1	b68	c255	f%\011SOQ.jar	g%\011SOQ.zip	hManifest-Version\0111.0!2570;g
 %\011src%smain%sjava%sRound1.java
 %\011src%smain%sjava%sSOQ_20230731_1.java
 %\011src%smain%sjava%sSOQ_20220425.java
+%\011src%smain%sjava%scodeReview%s_20240203%sWindowState.java
 %\011src%smain%sjava%sSOQ_20220516_1.java
 %\011src%smain%sjava%sMain.java
 %\011src%smain%sjava%sShowRecipes.java
@@ -79,16 +80,19 @@ a1	b68	c255	f%\011SOQ.jar	g%\011SOQ.zip	hManifest-Version\0111.0!2570;g
 %\011src%smain%sjava%sSOQ_20220514_1.java
 %\011src%smain%sjava%sClientServerExample.java
 %\011src%smain%sjava%sReworkedRecipeEngine.java
+%\011src%smain%sjava%scodeReview%s_20240203%sWindowsQueue.java
 %\011src%smain%sjava%sRecipe.java
 %\011src%smain%sjava%sGenderEnum.java
 %\011src%smain%sjava%sio%sgithub%sdavidalayachew%sSOQ_20220406_0138.java
 %\011src%smain%sjava%sio%sgithub%sdavidalayachew%sSOQ_20220406_0201.java
 %\011src%smain%sjava%sNode.java
+%\011src%smain%sjava%scodeReview%s_20240203%sWindowStatus.java
 %\011src%smain%sjava%sSOQ_20220605.java
 %\011src%smain%sjava%sSOQ_20220501.java
+%\011src%smain%sjava%scodeReview%s_20240203%sWindowTurn.java
 %\011src%smain%sjava%sCR_20220523.java
 %\011src%smain%sjava%sSOQ_20220528_2.java
-!2570;f
+!2819;f
 %\011src%smain%sjava%sHolidaycharitydonations.java
 %\011src%smain%sjava%sMyPaintApp.java
 %\011src%smain%sjava%sSOQ.java
@@ -130,6 +134,7 @@ a1	b68	c255	f%\011SOQ.jar	g%\011SOQ.zip	hManifest-Version\0111.0!2570;g
 %\011src%smain%sjava%sRound1.java
 %\011src%smain%sjava%sSOQ_20230731_1.java
 %\011src%smain%sjava%sSOQ_20220425.java
+%\011src%smain%sjava%scodeReview%s_20240203%sWindowState.java
 %\011src%smain%sjava%sSOQ_20220516_1.java
 %\011src%smain%sjava%sMain.java
 %\011src%smain%sjava%sShowRecipes.java
@@ -142,13 +147,16 @@ a1	b68	c255	f%\011SOQ.jar	g%\011SOQ.zip	hManifest-Version\0111.0!2570;g
 %\011src%smain%sjava%sSOQ_20220514_1.java
 %\011src%smain%sjava%sClientServerExample.java
 %\011src%smain%sjava%sReworkedRecipeEngine.java
+%\011src%smain%sjava%scodeReview%s_20240203%sWindowsQueue.java
 %\011src%smain%sjava%sRecipe.java
 %\011src%smain%sjava%sGenderEnum.java
 %\011src%smain%sjava%sio%sgithub%sdavidalayachew%sSOQ_20220406_0138.java
 %\011src%smain%sjava%sio%sgithub%sdavidalayachew%sSOQ_20220406_0201.java
 %\011src%smain%sjava%sNode.java
+%\011src%smain%sjava%scodeReview%s_20240203%sWindowStatus.java
 %\011src%smain%sjava%sSOQ_20220605.java
 %\011src%smain%sjava%sSOQ_20220501.java
+%\011src%smain%sjava%scodeReview%s_20240203%sWindowTurn.java
 %\011src%smain%sjava%sCR_20220523.java
 %\011src%smain%sjava%sSOQ_20220528_2.java
 !27;m
