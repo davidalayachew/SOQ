@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalDouble;
 import java.util.stream.Stream;
 
 /** NOT THREAD SAFE. */
@@ -139,9 +140,9 @@ public final class WindowsQueue<E>
    
    }
 
-   public int pendingElementsInQueue() 
+   public int pendingElementsInQueue()
    {
-      
+   
       return
          this
             .values()
@@ -301,9 +302,42 @@ public final class WindowsQueue<E>
    
    }
 
-   public void balance() {
-      if (!isWindow1Open() || !isWindow2Open())
+   public void balance()
+   {
+   
+      final boolean anyWindowsClosed =
+         this
+            .values()
+            .map(WindowState::windowStatus)
+            .filter(WindowStatus.CLOSED::equals)
+            .findAny()
+            .isPresent()
+            ;
+   
+      if (anyWindowsClosed)
+      {
+      
          throw new IllegalStateException("Cannot balance");
+      
+      }
+      
+      final OptionalDouble potentialAvg = 
+         this
+            .values()
+            .map(WindowState::windowElements)
+            .mapToInt(List::size)
+            .average()
+            ;
+   
+      final int avg = (int) Math.rint(potentialAvg.orElseThrow());
+   
+   //    final var idk =
+   //       this
+   //          .values()
+   //          .map(WindowState::windowElements)
+   //          .mapToInt(List::size)
+   //          ;
+   
       int diff = pendingElementsInWindow1() - pendingElementsInWindow2();
       if (diff > 1) {
          transfer(window1, window2, diff / 2);

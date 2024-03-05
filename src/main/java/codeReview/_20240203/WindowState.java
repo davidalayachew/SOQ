@@ -16,7 +16,7 @@ public final class WindowState<E>
       return this.windowElements;
    
    }
-   
+
    public WindowStatus windowStatus()
    {
    
