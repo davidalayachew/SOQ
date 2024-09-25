@@ -25,7 +25,7 @@ s#r0ignore/bin
 s#t0ignore/help
 s#w0ignore/canvases
 !64;u
-a1	b68	c255	f%\011SOQ.jar	g%\011SOQ.zip	hManifest-Version\0111.0!2819;g
+a1	b68	c255	f%\011SOQ.jar	g%\011SOQ.zip	hManifest-Version\0111.0!2893;g
 %\011src%smain%sjava%sHolidaycharitydonations.java
 %\011src%smain%sjava%sMyPaintApp.java
 %\011src%smain%sjava%sSOQ.java
@@ -54,6 +54,8 @@ a1	b68	c255	f%\011SOQ.jar	g%\011SOQ.zip	hManifest-Version\0111.0!2819;g
 %\011src%smain%sjava%sMyService.java
 %\011src%smain%sjava%sNameOfTheOldest.java
 %\011src%smain%sjava%sGridWalker.java
+%\011src%smain%sjava%sR_20240824.java
+%\011src%smain%sjava%sTextGame.java
 %\011src%smain%sjava%sSOQ_20220415_1.java
 %\011src%smain%sjava%sSOQ_20220519.java
 %\011src%smain%sjava%sSOQ_20220516_2.java
@@ -92,7 +94,7 @@ a1	b68	c255	f%\011SOQ.jar	g%\011SOQ.zip	hManifest-Version\0111.0!2819;g
 %\011src%smain%sjava%scodeReview%s_20240203%sWindowTurn.java
 %\011src%smain%sjava%sCR_20220523.java
 %\011src%smain%sjava%sSOQ_20220528_2.java
-!2819;f
+!2893;f
 %\011src%smain%sjava%sHolidaycharitydonations.java
 %\011src%smain%sjava%sMyPaintApp.java
 %\011src%smain%sjava%sSOQ.java
@@ -121,6 +123,8 @@ a1	b68	c255	f%\011SOQ.jar	g%\011SOQ.zip	hManifest-Version\0111.0!2819;g
 %\011src%smain%sjava%sMyService.java
 %\011src%smain%sjava%sNameOfTheOldest.java
 %\011src%smain%sjava%sGridWalker.java
+%\011src%smain%sjava%sR_20240824.java
+%\011src%smain%sjava%sTextGame.java
 %\011src%smain%sjava%sSOQ_20220415_1.java
 %\011src%smain%sjava%sSOQ_20220519.java
 %\011src%smain%sjava%sSOQ_20220516_2.java
