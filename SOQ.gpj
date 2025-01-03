@@ -22,7 +22,7 @@ s#q0src/test/java
 s#r0run/jGRASP_binaries
 s#t0ignore/help
 s#w0canvases
-!3258;g
+!3344;g
 %\011src%smain%sjava%sB.java
 %\011src%smain%sjava%sCardObject.java
 %\011src%smain%sjava%sCharNum.java
@@ -47,6 +47,7 @@ s#w0canvases
 %\011src%smain%sjava%sio%sgithub%sdavidalayachew%sSOQ_20220406_0138.java
 %\011src%smain%sjava%sio%sgithub%sdavidalayachew%sSOQ_20220406_0201.java
 %\011src%smain%sjava%sio%sgithub%sdavidalayachew%sSOQ_20220406_0238.java
+%\011src%smain%sjava%sIrrelevant.java
 %\011src%smain%sjava%sKvarteret.java
 %\011src%smain%sjava%sLayoutTrouble.java
 %\011src%smain%sjava%sMain.java
@@ -59,6 +60,7 @@ s#w0canvases
 %\011src%smain%sjava%soops.java
 %\011src%smain%sjava%sOrganProject%sMain.java
 %\011src%smain%sjava%sOrganProject%sOrgan.java
+%\011src%smain%sjava%sQuickAndDirtyExample.java
 %\011src%smain%sjava%sR_20240824.java
 %\011src%smain%sjava%sRecipe.java
 %\011src%smain%sjava%sRecursiveSumTask.java
@@ -98,7 +100,7 @@ s#w0canvases
 %\011src%smain%sjava%sTextGame.java
 %\011src%smain%sjava%sUserPrompt.java
 %\011src%smain%sjava%sWordle.java
-!3258;f
+!3344;f
 %\011src%smain%sjava%sB.java
 %\011src%smain%sjava%sCardObject.java
 %\011src%smain%sjava%sCharNum.java
@@ -123,6 +125,7 @@ s#w0canvases
 %\011src%smain%sjava%sio%sgithub%sdavidalayachew%sSOQ_20220406_0138.java
 %\011src%smain%sjava%sio%sgithub%sdavidalayachew%sSOQ_20220406_0201.java
 %\011src%smain%sjava%sio%sgithub%sdavidalayachew%sSOQ_20220406_0238.java
+%\011src%smain%sjava%sIrrelevant.java
 %\011src%smain%sjava%sKvarteret.java
 %\011src%smain%sjava%sLayoutTrouble.java
 %\011src%smain%sjava%sMain.java
@@ -135,6 +138,7 @@ s#w0canvases
 %\011src%smain%sjava%soops.java
 %\011src%smain%sjava%sOrganProject%sMain.java
 %\011src%smain%sjava%sOrganProject%sOrgan.java
+%\011src%smain%sjava%sQuickAndDirtyExample.java
 %\011src%smain%sjava%sR_20240824.java
 %\011src%smain%sjava%sRecipe.java
 %\011src%smain%sjava%sRecursiveSumTask.java
